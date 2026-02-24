@@ -1,0 +1,195 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: linear-gradient(to bottom, #f0f4f8, #ffffff);
+    color: #2d3748;
+    line-height: 1.7;
+}
+
+header {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    color: white;
+    text-align: center;
+    padding: 60px 20px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.2) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+nav {
+    background: white;
+    text-align: center;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    margin: 0 18px;
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 1.05rem;
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: #2563eb;
+    left: 50%;
+    bottom: -6px;
+    transition: width 0.4s, left 0.4s;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+    left: 0;
+}
+
+main {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 25px;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+h2 {
+    color: #1d4ed8;
+    font-size: 2.2rem;
+    margin-bottom: 24px;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background: #60a5fa;
+    bottom: -10px;
+    left: 0;
+    border-radius: 2px;
+}
+
+.text-with-image {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+    margin: 30px 0;
+}
+
+.text-with-image.reverse {
+    flex-direction: row-reverse;
+}
+
+.text-with-image img {
+    max-width: 380px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    transition: transform 0.4s ease;
+}
+
+.text-with-image img:hover {
+    transform: scale(1.04);
+}
+
+.text-block {
+    flex: 1;
+    min-width: 300px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+    margin: 40px 0;
+}
+
+.card {
+    background: white;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.14);
+}
+
+.card h4 {
+    color: #2563eb;
+    margin-bottom: 12px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin: 40px 0;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.gallery img:hover {
+    transform: scale(1.06);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+}
+
+footer {
+    background: #1e293b;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 30px;
+    margin-top: 60px;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .text-with-image, .text-with-image.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+    .text-with-image img {
+        max-width: 90%;
+    }
+    header h1 { font-size: 2.2rem; }
+    nav a { margin: 0 12px; font-size: 1rem; }
+}
